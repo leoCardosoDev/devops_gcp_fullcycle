@@ -8,10 +8,13 @@ RUN rm -rf /var/www/html
 RUN ln -s public html
 COPY . /var/www
 
+
 RUN composer install \
 #    && php artisan migrate \
     && php artisan cache:clear \ 
     && chmod -R 777 storage
+
+RUN composer require predis/predis
 
 EXPOSE 9000
 
