@@ -10,7 +10,6 @@ COPY . /var/www
 
 
 RUN composer install \
-#    && php artisan migrate \
     && php artisan cache:clear \ 
     && chmod -R 777 storage
 
